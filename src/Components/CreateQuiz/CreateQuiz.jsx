@@ -260,7 +260,7 @@ const CreateQuizForm = ({ userId, onClose }) => {
     setSelectedTimer(value);
   };
   const handleShareClick = () => {
-    const quizLink = `http://localhost:3000/quiz/${quizId}`;
+    const quizLink = `https://quizze-app-supriya.netlify.app/quiz/${quizId}`;
 
     navigator.clipboard.writeText(quizLink).then(
       () => {
@@ -660,7 +660,7 @@ const CreateQuizForm = ({ userId, onClose }) => {
                 Congrats your Quiz is Published!
               </div>
               <div className={styles.link}>
-                http://localhost:3000/quiz/{quizId}
+                https://quizze-app-supriya.netlify.app/quiz/{quizId}
               </div>
               <div className={styles.share}>
                 <button onClick={handleShareClick}>share</button>
