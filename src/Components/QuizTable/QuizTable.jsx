@@ -25,7 +25,7 @@ const QuizTable = () => {
     const fetchDashboardData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/quiz/dashboard/${userId}`,
+          `https://quizeapp-backend.onrender.com/quiz/dashboard/${userId}`,
           {
             headers: {
               token: localStorage.getItem("token"),
