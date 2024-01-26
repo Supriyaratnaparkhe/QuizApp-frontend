@@ -8,7 +8,7 @@ const DeleteQuiz = ({ onClose, onDelete, quizId }) => {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `http://localhost:3001/quiz/deleteQuiz/${userId}/${quizId}`,
+        `https://quizeapp-backend.onrender.com/quiz/deleteQuiz/${userId}/${quizId}`,
         {
           headers: {
             token: localStorage.getItem("token"),
