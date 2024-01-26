@@ -35,7 +35,7 @@ const Login = () => {
       const isValid = validateValues(UserState);
 
       if (isValid) {
-        const response = await axios.post("http://localhost:3001/auth/login", {
+        const response = await axios.post("https://quizeapp-backend.onrender.com/auth/login", {
           email: UserState.email,
           password: UserState.password,
         });
