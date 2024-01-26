@@ -1,0 +1,18 @@
+.mainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.msgContainer {
+  width: 700px;
+  color: #474444;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 74px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

@@ -1,0 +1,76 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap:30px;
+}
+.headline {
+  color: #5076ff;
+  font-family: Poppins;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+  
+}
+.tableContainer {
+  height: 340px;
+  width: 800px;
+  margin-top: 40px;
+  overflow-y: auto;
+}
+.tableContainer::-webkit-scrollbar {
+  display: none;
+}
+.quiztable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.quiztable th {
+  text-align: center;
+  color: #fff;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  padding:5px;
+}
+.quiztable td {
+  text-align: center;
+  color: #000;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+}
+
+.quiztable tr:nth-child(even) {
+  background: #b3c4ff;
+}
+
+.quiztable th {
+  background: #5076ff;
+}
+
+.quiztable td:first-child,
+.quiztable th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.quiztable td:last-child,
+.quiztable th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+.logo {
+  display: flex;
+  gap:10px;
+  margin-top: 5px;
+}
+.icon img{
+  cursor: pointer;
+}

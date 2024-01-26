@@ -1,0 +1,51 @@
+.navbar {
+  width: 200px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+  justify-content: space-around;
+}
+.quizze {
+  color: #474444;
+  font-family: Jomhuria;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+/* .but{
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.12);
+} */
+
+.but button {
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.12);
+  width: 176px;
+  height: 38px;
+  margin-top: 20px;
+  color: #474444;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  cursor: pointer;
+}
+.logout button {
+  color: #474444;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+}

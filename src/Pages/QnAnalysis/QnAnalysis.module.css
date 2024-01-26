@@ -1,0 +1,8 @@
+.container{
+    display:flex;
+    background: #EDEDED;
+    overflow: hidden;
+}
+.quiz{
+    overflow: hidden;
+}

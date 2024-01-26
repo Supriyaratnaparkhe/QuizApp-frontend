@@ -1,0 +1,12 @@
+.analytics{
+    display: flex;
+    background: #EDEDED; 
+    overflow: hidden;
+}
+.quiztablecontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    
+}

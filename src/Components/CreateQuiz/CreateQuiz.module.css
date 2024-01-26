@@ -1,0 +1,450 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.81);
+}
+/* .create {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  width: 1000px;
+  height: 7000px;
+  border-radius: 10px;
+  background: #fff;
+} */
+.page1 {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  width: 845px;
+  height: 422px;
+  border-radius: 10px;
+  background: #fff;
+}
+.quizname input {
+  width: 673px;
+  height: 70px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+  color: #9f9f9f;
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border: none;
+  padding-left: 10px;
+}
+.quiztype {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+#quizType {
+  color: #9f9f9f;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.qztypebutton button {
+  width: 171px;
+  height: 46px;
+  border-radius: 10px;
+  border: none;
+  background: #fff;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+  color: #9f9f9f;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+}
+.selectedButton button {
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+  background: #60b84b;
+  color: #fff;
+  width: 171px;
+  height: 46px;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.but {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+.cancel button {
+  border-radius: 10px;
+  background: #fff;
+  border: none;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+  width: 279px;
+  height: 46.144px;
+  color: #474444;
+  font-family: Poppins;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  cursor: pointer;
+}
+.continue button {
+  width: 279px;
+  height: 46.144px;
+  border-radius: 10px;
+  border: none;
+  background: #60b84b;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  cursor: pointer;
+}
+.page2 {
+  display: flex;
+
+  /* align-items: center; */
+  justify-content: center;
+  /* padding-left: 30px;
+  gap: 50px; */
+  width: 845px;
+  height: 540px;
+  border-radius: 10px;
+  background: #fff;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+}
+#max {
+  position: fixed;
+  margin-left: 600px;
+  color: #9f9f9f;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.questionList {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.qnbutton {
+  display: flex;
+  gap: 15px;
+}
+.questionItem {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  cursor: pointer;
+  position: relative;
+}
+.deleteQn {
+  position: absolute;
+  margin-top: -40px;
+  margin-left: 42px;
+}
+#qnNumber {
+  color: #9f9f9f;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.addqnbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  color: #9f9f9f;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+}
+.qnText {
+  margin-top: 20px;
+}
+.qnText input {
+  width: 673px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background: #fff;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+  color: #9f9f9f;
+  padding-left: 10px;
+  margin-left: 10px;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.optionType {
+  display: flex;
+  margin-top: 20px;
+  gap: 20px;
+  color: #9f9f9f;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  margin-left: 650px;
+  margin-top: 200px;
+  color: #9f9f9f;
+  gap: 10px;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.qnTimerbutton button {
+  width: 95px;
+  height: 34px;
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.15);
+  color: #9f9f9f;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+}
+.selectedTimerButton button {
+  width: 95px;
+  height: 34px;
+  border: none;
+  border-radius: 10px;
+  background: #d60000;
+  color: #fff;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+}
+.optionContainer {
+  height: 250px;
+}
+.optioninput {
+  display: flex;
+  align-items: center;
+}
+.optionText input {
+  width: 270px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: #fff;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+  color: #9f9f9f;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+#addOption button {
+  width: 200px;
+  border: none;
+  height: 40px;
+  border: none;
+  margin-left: 10px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  color: #9f9f9f;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+#options {
+  display: flex;
+  gap: 40px;
+}
+.submitbuttons {
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+}
+#cancel button {
+  width: 279px;
+  height: 46.144px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+  color: #474444;
+  font-family: Poppins;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  cursor: pointer;
+}
+#submit button {
+  width: 279px;
+  height: 46.144px;
+  border-radius: 10px;
+  background: #60b84b;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  cursor: pointer;
+}
+.selectedOption input {
+  background: #60b84b;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.radio1 input[type="radio"] {
+  accent-color: #353434;
+}
+#radio2 input[type="radio"] {
+  accent-color: #60b84b;
+}
+.page3 {
+  width: 845px;
+  height: 481px;
+  border-radius: 10px;
+  background: #fff;
+}
+.shareContainer {
+  width: 845px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.congrats {
+  width: 450px;
+  color: #474444;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 39px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.link {
+  width: 750px;
+  height: 50px;
+  text-align: center;
+  border-radius: 10px;
+  background: #ededed;
+  color: #474444;
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.share button {
+  width: 279px;
+  height: 46.144px;
+  border: none;
+  border-radius: 10px;
+  background: #60b84b;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  cursor: pointer;
+}
+#close button {
+  margin-left: 800px;
+  width: 30px;
+  margin-left: 130;
+  background: none;
+  border: none;
+  color: #474444;
+  cursor: pointer;
+  border: none;
+  color: #474444;
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.activeQn {
+  background: #ededed;
+}

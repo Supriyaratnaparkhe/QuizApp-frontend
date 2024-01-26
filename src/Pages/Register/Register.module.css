@@ -1,0 +1,120 @@
+.container{
+    background-color: #F2F2F2;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signup{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    align-items: center;
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
+    width: 850px;
+    height:500px;
+
+}
+.heading{
+    text-align: center;
+    color: #474444;
+    font-family: Jomhuria;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top:30px;
+}
+.buttons{
+    display: flex;
+    gap:50px;
+    margin-top:20px;
+}
+.signupbut button{
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 50px 0px rgba(0, 25, 255, 0.24);
+    border:none; 
+    width: 217px;
+    height: 37px;
+    cursor: pointer;
+    color: #474444;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.loginbut button{
+    border:none;
+    background-color: #FFF;
+    cursor: pointer;
+    width: 217px;
+    height: 37px;
+    color: #474444;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.centeredForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+.centeredForm table {
+    border-spacing: 20px;
+    margin-top:20px;
+}
+.ele1{
+    float: right;
+    color: #474444;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.inputbox{
+    width: 300px;
+    height: 30px;
+    border-radius: 10px 10px 0px 0px;
+    background: #F4F4F4;
+    border:none;
+}
+.inputErrorbox{
+    width: 300px;
+    height: 30px;
+    border-radius: 10px 10px 0px 0px;
+    background: #F4F4F4;
+    border: 1px solid #D60000;
+}
+.inputErrorbox::placeholder{
+    color: #D60000;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+  }
+  .signupbtn button{
+    width: 200px;
+    height: 38px;
+    border-radius: 8px;
+    background: #A9BCFF;
+    border:none;
+    color: #474444;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 20px;
+    cursor: pointer;
+  }

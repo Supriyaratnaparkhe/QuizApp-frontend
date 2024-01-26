@@ -1,0 +1,31 @@
+.upper{
+    display: flex;
+    gap:50px;
+    margin-top:-20px;
+}
+.card{
+    width: 230px;
+    height: 100px;
+    padding-left:20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    background: #FFF;
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+#num{
+    padding-right: 10px;
+    font-size: 50px;
+}
+.quiz{
+    color: #FF5D01;
+}
+.question{
+    color: #60B84B;
+}
+.impression{
+    color: #5076FF;
+}
