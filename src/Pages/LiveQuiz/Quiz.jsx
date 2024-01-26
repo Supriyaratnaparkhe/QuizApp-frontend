@@ -120,7 +120,7 @@ const QuizzePage = () => {
     });
     // Send user responses to the backend
     axios
-      .put(`http://localhost:3001/quiz/poll/${quizId}`, userResponses)
+      .put(`https://quizeapp-backend.onrender.com/quiz/poll/${quizId}`, userResponses)
       .then((response) => {
         console.log("Responses submitted successfully", response.data);
       })
