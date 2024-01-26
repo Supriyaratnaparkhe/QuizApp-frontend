@@ -37,7 +37,7 @@ const EditQuizForm = ({ onClose, userId, quizId }) => {
     const fetchQuizDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/quiz/${quizId}`
+          `https://quizeapp-backend.onrender.com/quiz/${quizId}`
         );
         const quizDetails = response.data.quiz;
         setQuizData(response.data.quiz);
@@ -94,7 +94,7 @@ const EditQuizForm = ({ onClose, userId, quizId }) => {
   const handleSubmit = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:3001/quiz/editQuiz/${userId}/${quizId}`,
+        `https://quizeapp-backend.onrender.com/quiz/editQuiz/${userId}/${quizId}`,
         quizData,
         {
           headers: {
