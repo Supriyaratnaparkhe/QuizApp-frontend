@@ -13,6 +13,7 @@ const QuizzePage = () => {
 
   const calculateScore = useCallback(() => {
     let score = 0;
+    
 
     quizData.questions.forEach((question, index) => {
       const selectedOption = selectedOptions[index];
