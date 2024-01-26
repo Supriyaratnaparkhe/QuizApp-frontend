@@ -46,7 +46,7 @@ const Register = () => {
       const isValid = validateValues(UserState);
 
       if (isValid) {
-        const response = await axios.post("http://localhost:3001/auth/register", {
+        const response = await axios.post("https://quizeapp-backend.onrender.com/auth/register", {
           name: UserState.name,
           email: UserState.email,
           password: UserState.password,
