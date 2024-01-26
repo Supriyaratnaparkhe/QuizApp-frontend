@@ -39,7 +39,7 @@ const QuizzePage = () => {
   
     // Send user responses to the backend
     axios
-      .put(`http://localhost:3001/quiz/${quizId}`, userResponses)
+      .put(`https://quizeapp-backend.onrender.com/quiz/${quizId}`, userResponses)
       .then((response) => {
         console.log("Responses submitted successfully", response.data);
       })
@@ -59,7 +59,7 @@ const QuizzePage = () => {
     const fetchQuizDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/quiz/${quizId}`
+          `https://quizeapp-backend.onrender.com/quiz/${quizId}`
         );
 
         setQuizData(response.data.quiz);
@@ -137,7 +137,7 @@ const QuizzePage = () => {
     });
     // Send user responses to the backend
     axios
-      .put(`http://localhost:3001/quiz/poll/${quizId}`, userResponses)
+      .put(`https://quizeapp-backend.onrender.com/quiz/poll/${quizId}`, userResponses)
       .then((response) => {
         console.log("Responses submitted successfully", response.data);
       })
