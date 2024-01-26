@@ -91,7 +91,7 @@ const CreateQuizForm = ({ userId, onClose }) => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:3001/quiz/createQuiz/${userId}`,
+        `https://quizeapp-backend.onrender.com/quiz/createQuiz/${userId}`,
         quizData,
         {
           headers: {
