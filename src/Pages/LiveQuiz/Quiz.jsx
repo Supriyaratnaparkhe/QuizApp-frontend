@@ -53,7 +53,7 @@ const QuizzePage = () => {
     } else {
       setCountdown(null);
     }
-  }, [currentQuestionIndex, quizData]);
+  }, [currentQuestionIndex,quizData,handleSubmit]);
 
   const handleOptionClick = (option) => {
     setSelectedOptions((prevOptions) => {
