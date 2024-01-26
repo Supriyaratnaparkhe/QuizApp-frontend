@@ -18,7 +18,7 @@ const QnAnalysis = () => {
     const fetchQuizDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/quiz/analytics/${userId}/${quizId}`,
+          `https://quizeapp-backend.onrender.com/quiz/analytics/${userId}/${quizId}`,
           {
             headers: {
               token: localStorage.getItem("token"),
