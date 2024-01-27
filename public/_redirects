@@ -1,1 +1,7 @@
-/*  /index.html  200
+/            /     200
+/login       /login   200
+/dashboard   /dashboard/:userId   200
+/analytics   /analytics/:userId   200
+/liveQuiz    /liveQuiz/:quizId    200
+/finalScore  /finalScore          200
+/finalPoll   /finalPoll           200
