@@ -1,6 +1,6 @@
 import React  from 'react'
 import './App.module.css'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login'
 import Dashboard from './Pages/Dashboard/Dashboard';
@@ -13,7 +13,7 @@ import SubmitPoll from './Pages/Submit Poll/SubmitPoll';
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path='/' element={<Register />} />
           <Route path='/login' element={<Login />} />
@@ -24,7 +24,7 @@ function App() {
           <Route path='/finalScore' element={<SubmitQuiz />}/>
           <Route path='/finalPoll' element={<SubmitPoll />}/>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
       
     </>
   );
