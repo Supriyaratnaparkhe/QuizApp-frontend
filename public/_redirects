@@ -1,4 +1,4 @@
-/            /login   200
+
 /login       /login   200
 /dashboard   /dashboard/:userId   200
 /analytics   /analytics/:userId   200
