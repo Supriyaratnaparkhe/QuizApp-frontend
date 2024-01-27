@@ -1,11 +1,10 @@
-
 .doneContainer {
-    width: 1000px;
-    height: 520px;
-    margin-top: 20px;
-    border-radius: 15px;
-    background: #FFF;
-    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
+  width: 1000px;
+  height: 520px;
+  margin-top: 20px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
 }
 
 .title {
@@ -21,10 +20,9 @@
 
 .doneImage {
   background: url("./prize.png"),
-   lightgray -73.071px -61.584px / 144.094% 142.412% no-repeat;
-   width: 400px;
-   height: 350px;
-   
+    lightgray -73.071px -61.584px / 144.094% 142.412% no-repeat;
+  width: 400px;
+  height: 350px;
 }
 
 .scoreText {
@@ -35,4 +33,48 @@
   font-weight: 700;
   line-height: normal;
   margin-top: 20px;
+}
+@media screen and (max-width: 500px) {
+  .doneContainer {
+    width: 410px;
+    height: 852px;
+    margin-top: 20px;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  .title {
+    width: 393px;
+    color: #474444;
+
+    text-align: center;
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .doneImage {
+    background: url("./prize.png"),
+      lightgray -73.071px -61.584px / 144.094% 142.412% no-repeat;
+    width: 393px;
+    height: 323px;
+    margin-top: 50px;
+  }
+
+  .scoreText {
+    color: #474444;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 60px;
+  }
+  .scoreText span {
+    color: #60b84b;
+  }
 }
