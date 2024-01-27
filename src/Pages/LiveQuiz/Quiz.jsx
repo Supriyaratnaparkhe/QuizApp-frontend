@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./Quiz.module.css";
 import { useParams, useNavigate } from "react-router-dom";
@@ -11,56 +11,11 @@ const QuizzePage = () => {
   const { quizId } = useParams();
   const navigate = useNavigate();
 
-  const calculateScore = useCallback(() => {
-    let score = 0;
-    
-
-    quizData.questions.forEach((question, index) => {
-      const selectedOption = selectedOptions[index];
-      const correctAnswer = question.correctAnswer;
-
-      if (selectedOption === correctAnswer) {
-        score++;
-      }
-    });
-
-    return score;
-  }, [selectedOptions, quizData]);
-
-  const handleSubmit = useCallback(() => {
-    const userResponses = quizData.questions.map((question, index) => {
-      const selectedOption = selectedOptions[index];
-      const isCorrect = selectedOption === question.correctAnswer;
-      return {
-        questionId: question._id,
-        selectedOption,
-        isCorrect,
-      };
-    });
-  
-    // Send user responses to the backend
-    axios
-      .put(`https://quizeapp-backend.onrender.com/quiz/${quizId}`, userResponses)
-      .then((response) => {
-        console.log("Responses submitted successfully", response.data);
-      })
-      .catch((error) => {
-        console.error("Error submitting responses", error);
-      });
-  
-    const finalScore = calculateScore();
-    const quizLength = quizData.questions.length;
-    // Display the final score to the user locally
-    navigate("/finalScore", { state: { finalScore, quizLength } });
-  }, [ selectedOptions,quizData, quizId, calculateScore, navigate]);
-  
-  
-
   useEffect(() => {
     const fetchQuizDetails = async () => {
       try {
         const response = await axios.get(
-          `https://quizeapp-backend.onrender.com/quiz/${quizId}`
+          `http://localhost:3001/quiz/${quizId}`
         );
 
         setQuizData(response.data.quiz);
@@ -98,7 +53,7 @@ const QuizzePage = () => {
     } else {
       setCountdown(null);
     }
-  }, [currentQuestionIndex, quizData,handleSubmit]);
+  }, [currentQuestionIndex, quizData]);
 
   const handleOptionClick = (option) => {
     setSelectedOptions((prevOptions) => {
@@ -120,6 +75,33 @@ const QuizzePage = () => {
       .padStart(2, "0")}`;
   };
 
+  const handleSubmit = () => {
+    const userResponses = quizData.questions.map((question, index) => {
+      const selectedOption = selectedOptions[index];
+      const isCorrect = selectedOption === question.correctAnswer;
+      return {
+        questionId: question._id,
+        selectedOption,
+        isCorrect,
+      };
+    });
+
+    // Send user responses to the backend
+    axios
+      .put(`http://localhost:3001/quiz/${quizId}`, userResponses)
+      .then((response) => {
+        console.log("Responses submitted successfully", response.data);
+      })
+      .catch((error) => {
+        console.error("Error submitting responses", error);
+      });
+
+    const finalScore = calculateScore();
+    const quizLength = quizData.questions.length;
+    // Display the final score to the user locally
+    navigate("/finalScore", { state: { finalScore, quizLength } });
+  };
+
   const handlePollSubmit = () => {
     const userResponses = selectedOptions.map((selectedOption, index) => {
       const question = quizData.questions[index];
@@ -138,7 +120,7 @@ const QuizzePage = () => {
     });
     // Send user responses to the backend
     axios
-      .put(`https://quizeapp-backend.onrender.com/quiz/poll/${quizId}`, userResponses)
+      .put(`http://localhost:3001/quiz/poll/${quizId}`, userResponses)
       .then((response) => {
         console.log("Responses submitted successfully", response.data);
       })
@@ -148,7 +130,20 @@ const QuizzePage = () => {
     navigate("/finalPoll");
   };
 
+  const calculateScore = () => {
+    let score = 0;
 
+    quizData.questions.forEach((question, index) => {
+      const selectedOption = selectedOptions[index];
+      const correctAnswer = question.correctAnswer;
+
+      if (selectedOption === correctAnswer) {
+        score++;
+      }
+    });
+
+    return score;
+  };
 
   if (!quizData) {
     return <div>Loading...</div>;
