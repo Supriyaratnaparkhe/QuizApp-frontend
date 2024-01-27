@@ -1,9 +1,8 @@
-/* DonePage.css */
 
 .doneContainer {
-    width: 1066px;
-    height: 643px;
-    flex-shrink: 0;
+    width: 1000px;
+    height: 520px;
+    margin-top: 20px;
     border-radius: 15px;
     background: #FFF;
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
@@ -25,7 +24,6 @@
    lightgray -73.071px -61.584px / 144.094% 142.412% no-repeat;
    width: 400px;
    height: 350px;
-   flex-shrink: 0;
    
 }
 
