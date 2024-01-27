@@ -16,3 +16,35 @@
   font-weight: 700;
   line-height: normal;
 }
+.mainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.msgContainer {
+  width: 700px;
+  color: #474444;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 74px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@media screen and (max-width: 500px) {
+  .msgContainer {
+    width: 287px;
+    color: #474444;
+    color: #474444;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+}
+
