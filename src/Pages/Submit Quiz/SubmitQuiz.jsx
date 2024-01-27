@@ -14,8 +14,7 @@ const SubmitQuiz = () => {
       <div className={styles.doneContainer}>
         <div className={styles.title}> Congrats Quiz is completed </div>
         <div className={styles.doneImage}></div>
-        {/* Display the final score */}
-        <p className={styles.scoreText}>Your Score is: {finalScore}/{quizLength}</p>
+        <p className={styles.scoreText}>Your Score is:<span>{finalScore}/{quizLength}</span></p>
       </div>
     </center>
   );
