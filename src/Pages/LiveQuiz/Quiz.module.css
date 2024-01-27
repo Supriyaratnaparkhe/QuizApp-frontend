@@ -1,5 +1,3 @@
-/* QuizPage.module.css */
-
 .main {
   display: flex;
   align-items: center;
@@ -15,7 +13,6 @@
   border-radius: 15px;
   background: #fff;
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
-  /* margin-top: 20px; */
   padding: 20px;
   justify-content: space-between;
 }
@@ -33,8 +30,6 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  /* padding-top: 36px;
-padding-left: 53px; */
 }
 
 .questionTimer {
@@ -44,8 +39,6 @@ padding-left: 53px; */
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  /* padding-top: 36px;
-padding-left: 790px; */
 }
 
 .quizTitle {
@@ -65,7 +58,6 @@ padding-left: 790px; */
   gap: 20px;
   width: 100%;
   grid-column-gap: 150px;
-  /* margin-top:30px; */
 }
 
 .optionButtonText {
@@ -101,10 +93,6 @@ padding-left: 790px; */
   cursor: pointer;
 }
 .optionButtonImg {
-  /* width: 320px;
-  height: 112px;
-  border-radius: 10px; */
-  
   cursor: pointer;
 }
 #textImg {
@@ -120,7 +108,6 @@ padding-left: 790px; */
   width: 320px;
   height: 112px;
   border-radius: 10px;
-  
 }
 
 .nextButton {
@@ -141,4 +128,143 @@ padding-left: 790px; */
   border-radius: 10px;
   border: 2px solid #5076ff;
   background: #f0f0f0;
+}
+@media screen and (max-width: 500px) {
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quizContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 393px;
+    height: 852px;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
+    justify-content: space-between;
+  }
+
+  .quizeheader {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .questionNumber {
+    color: #474444;
+
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .questionTimer {
+    color: #d60000;
+
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .quizTitle {
+    color: #474444;
+
+    text-align: center;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    width: 100%;
+  }
+
+  .optionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+  }
+
+  .optionButtonText {
+    width: 321.018px;
+    height: 56.7px;
+    border-radius: 10px;
+    background: #f0f0f0;
+    color: #000;
+
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .optionButtonTextImg {
+    width: 324px;
+    height: 96px;
+    border-radius: 10px;
+    background: #f0f0f0;
+    color: #000;
+
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+  }
+  .optionButtonImg {
+    cursor: pointer;
+  }
+  #textImg {
+    width: 170px;
+  }
+  #imgText img {
+    width: 85px;
+    height: 80px;
+    border-radius: 10px;
+    margin-top: 15px;
+  }
+  #img img {
+    width: 324px;
+    height: 96px;
+    border-radius: 10px;
+  }
+
+  .nextButton {
+    width: 188px;
+    height: 32.9px;
+    border-radius: 10px;
+    background: #60b84b;
+    color: #ffffff;
+    color: #fff;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: none;
+    cursor: pointer;
+  }
+
+  .selected {
+    border-radius: 10px;
+    border: 2px solid #5076ff;
+    background: #f0f0f0;
+  }
 }
