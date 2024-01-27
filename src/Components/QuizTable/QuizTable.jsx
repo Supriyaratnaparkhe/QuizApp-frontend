@@ -76,7 +76,7 @@ const QuizTable = () => {
   };
 
   const handleShareClick = (quizId) => {
-    const quizLink = `https://quizze-app-supriya.netlify.app/liveQuiz/${quizId}`;
+    const quizLink = `https://quizze-app-supriya.netlify.app/#/liveQuiz/${quizId}`;
 
     navigator.clipboard.writeText(quizLink).then(
       () => {
