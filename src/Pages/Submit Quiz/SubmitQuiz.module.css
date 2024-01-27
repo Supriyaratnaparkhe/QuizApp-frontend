@@ -34,6 +34,9 @@
   line-height: normal;
   margin-top: 20px;
 }
+.scoreText span {
+    color: #60b84b;
+  }
 @media screen and (max-width: 500px) {
   .doneContainer {
     width: 410px;
