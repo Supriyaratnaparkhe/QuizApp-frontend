@@ -1,6 +1,6 @@
 import React  from 'react'
 import './App.module.css'
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login'
 import Dashboard from './Pages/Dashboard/Dashboard';
@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <HashRouter>
-        <Switch>
+        <Routes>
           <Route path='/' element={<Register />} />
           <Route path='/login' element={<Login />} />
           <Route path='/dashboard/:userId' element={<Dashboard />}/>
@@ -23,7 +23,7 @@ function App() {
           <Route path='/liveQuiz/:quizId' element={<Quiz />}/>
           <Route path='/finalScore' element={<SubmitQuiz />}/>
           <Route path='/finalPoll' element={<SubmitPoll />}/>
-        </Switch>
+        </Routes>
       </HashRouter>
       
     </>
