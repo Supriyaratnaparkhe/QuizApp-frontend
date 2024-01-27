@@ -25,7 +25,7 @@ const QuizzePage = () => {
     });
 
     return score;
-  }, [selectedOptions, quizData]);
+  }, [ quizData]);
 
   const handleSubmit = useCallback(() => {
     const userResponses = quizData.questions.map((question, index) => {
@@ -52,7 +52,7 @@ const QuizzePage = () => {
     const quizLength = quizData.questions.length;
     // Display the final score to the user locally
     navigate("/finalScore", { state: { finalScore, quizLength } });
-  }, [selectedOptions, quizData, quizId, calculateScore, navigate]);
+  }, [ quizData, quizId, calculateScore, navigate]);
   
   
 
