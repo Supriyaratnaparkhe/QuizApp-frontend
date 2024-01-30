@@ -66,7 +66,19 @@ const Register = () => {
         return response.data;
       }
     } catch (error) {
-      console.error(error);
+      if (error.response && error.response.status === 400) {
+        const errorMessage = error.response.data.error;
+        toast.error(errorMessage, {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      } else {
+        console.error(error);
+      }
     }
   };
   const handleLogin = (e) => {
