@@ -12,6 +12,21 @@ const QuizzePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const updateImpressions = async () => {
+      try {
+        await axios.put(
+          `http://localhost:3001/quiz/impression/${quizId}`
+        );
+
+      } catch (error) {
+        console.error("Error:", error.message);
+      }
+    };
+
+    updateImpressions();
+  }, [quizId]);
+  
+  useEffect(() => {
     const fetchQuizDetails = async () => {
       try {
         const response = await axios.get(
