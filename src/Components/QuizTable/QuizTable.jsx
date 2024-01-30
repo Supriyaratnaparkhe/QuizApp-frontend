@@ -95,6 +95,7 @@ const QuizTable = () => {
         <div className={styles.container}>
           <div className={styles.headline}>Quiz Analysis</div>
           <div className={styles.tableContainer}>
+            {analyticData.quizDetails.length > 0 ? (
             <table className={styles.quiztable}>
               <thead>
                 <tr>
@@ -174,6 +175,9 @@ const QuizTable = () => {
                 ))}
               </tbody>
             </table>
+            ) : (
+              <div className={styles.message}>You don't have any Quiz</div>
+            )}
             <ToastContainer />
             {showEditModal && (
               <EditQuizForm
