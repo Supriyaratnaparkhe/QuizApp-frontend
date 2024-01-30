@@ -2,7 +2,15 @@ import React from "react";
 import styles from "./TrendingQuizzes.module.css";
 import eyes from "../assets/eyes.png";
 const TrendingQuizzes = (props) => {
+  const { quizDetails } = props;
 
+  if (quizDetails.length === 0) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.message}>You don't have any quiz</div>
+      </div>
+    );
+  }
   const sortedQuizDetails = props.quizDetails.sort(
     (a, b) => b.impression - a.impression
   );
