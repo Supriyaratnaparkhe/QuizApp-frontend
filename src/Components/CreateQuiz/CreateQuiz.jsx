@@ -13,6 +13,7 @@ const CreateQuizForm = ({ userId, onClose }) => {
   const [selectedQuizType, setSelectedQuizType] = useState(null);
   const [selectedTimer, setSelectedTimer] = useState(0);
   const [quizId, setQuizId] = useState("");
+  const [errors, setErrors] = useState({});
 
   const [quizData, setQuizData] = useState({
     quizName: "",
@@ -31,7 +32,18 @@ const CreateQuizForm = ({ userId, onClose }) => {
     ],
     quizType: "",
   });
+  const validateValues = (quizData) => {
+    const errors = {};
 
+    if (!quizData.quizName) {
+      errors.quizName = "*Quiz Name field is required";
+    }
+    if (!quizData.quizType) {
+      errors.quizType = "*Select Quiz Type";
+    }
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
   const handleChange = (e, questionIndex, optionIndex = null) => {
     const { name, value } = e.target;
 
@@ -203,8 +215,11 @@ const CreateQuizForm = ({ userId, onClose }) => {
   };
 
   const handlePage = () => {
-    setFirstPage(false);
-    setSecondPage(true);
+    const isValid = validateValues(quizData);
+    if (isValid) {
+      setFirstPage(false);
+      setSecondPage(true);
+    }
   };
 
   const handleQuestionClick = (questionIndex) => {
@@ -285,29 +300,42 @@ const CreateQuizForm = ({ userId, onClose }) => {
                 onChange={(e) => handleChange(e)}
                 placeholder="Quiz name"
               />
+              {errors.quizName && (
+                <div className={styles.errorMessage}>{errors.quizName}</div>
+              )}
             </div>
-            <div className={styles.quiztype}>
-              <div id={styles.quizType}>Quiz Type</div>
-              <div
-                onClick={setQuizTypePoll}
-                className={
-                  selectedQuizType === "poll"
-                    ? styles.selectedButton
-                    : styles.qztypebutton
-                }
-              >
-                <button>Poll</button>
+            <div>
+              <div className={styles.quiztype}>
+                <div id={styles.quizType}>Quiz Type</div>
+                <div
+                  onClick={setQuizTypePoll}
+                  className={
+                    selectedQuizType === "poll"
+                      ? styles.selectedButton
+                      : styles.qztypebutton
+                  }
+                >
+                  <button>Poll</button>
+                </div>
+                <div
+                  onClick={setQuizTypeQA}
+                  className={
+                    selectedQuizType === "q&a"
+                      ? styles.selectedButton
+                      : styles.qztypebutton
+                  }
+                >
+                  <button>Q&A</button>
+                </div>
               </div>
-              <div
-                onClick={setQuizTypeQA}
-                className={
-                  selectedQuizType === "q&a"
-                    ? styles.selectedButton
-                    : styles.qztypebutton
-                }
-              >
-                <button>Q&A</button>
-              </div>
+              {errors.quizType && (
+                <div
+                  className={styles.errorMessage}
+                  style={{ textAlign: "center" }}
+                >
+                  {errors.quizType}
+                </div>
+              )}
             </div>
             <div className={styles.but}>
               <div className={styles.cancel}>
