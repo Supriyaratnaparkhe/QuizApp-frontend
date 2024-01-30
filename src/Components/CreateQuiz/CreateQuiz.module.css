@@ -431,3 +431,11 @@
 .activeQn {
   background: #ededed;
 }
+.errorMessage{
+  color: #d60000;
+  font-family: Poppins;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
