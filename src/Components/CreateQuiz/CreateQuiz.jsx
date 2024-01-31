@@ -5,7 +5,7 @@ import del from "../assets/delete.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const CreateQuizForm = ({ userId, onClose }) => {
+const CreateQuizForm = ({ userId, onClose, onCreateSuccess }) => {
   const [firstPage, setFirstPage] = useState(true);
   const [secondPage, setSecondPage] = useState(false);
   const [thirdPage, setThirdPage] = useState(false);
@@ -286,6 +286,10 @@ const CreateQuizForm = ({ userId, onClose }) => {
       }
     );
   };
+  const handleClose = () =>{
+    onCreateSuccess();
+    onClose();
+  }
   return (
     <div className={styles.container}>
       <div className={styles.create}>
@@ -657,7 +661,7 @@ const CreateQuizForm = ({ userId, onClose }) => {
         {thirdPage ? (
           <div className={styles.page3}>
             <div id={styles.close}>
-              <button onClick={onClose}>X</button>
+              <button onClick={handleClose}>X</button>
             </div>
             <div className={styles.shareContainer}>
               <div className={styles.congrats}>
