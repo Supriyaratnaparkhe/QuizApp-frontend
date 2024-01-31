@@ -28,7 +28,9 @@ const Navbar = (props) => {
     setSelectedButton("dashboard");
     navigate(`/dashboard/${userId}`);
   };
-
+  const handleCreateQuizSuccess = () => {
+    props.onCreateSuccess();
+  };
   return (
     <div>
       <div className={styles.navbar}>
@@ -67,6 +69,7 @@ const Navbar = (props) => {
             <CreateQuizForm
               userId={userId}
               onClose={() => setShowCreateModal(false)}
+              onCreateSuccess={handleCreateQuizSuccess}
             />
           )}
         </div>
