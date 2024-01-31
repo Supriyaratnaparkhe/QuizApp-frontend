@@ -44,28 +44,43 @@ const CreateQuizForm = ({ userId, onClose }) => {
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };
+  const validateSecondPage = (quizData) => {
+    const errors = {};
+
+    quizData.questions.forEach((question, questionIndex) => {
+      if (!question.questionText.trim()) {
+        errors[`questionText-${questionIndex}`] = "*Question Text is required";
+        toast.error(`Question ${questionIndex + 1}: Question Text is required`);
+      }
+  
+      if (quizData.quizType === "q&a") {
+        if (!question.correctAnswer.trim()) {
+          errors[`correctAnswer-${questionIndex}`] = "*Select Correct Answer";
+          toast.error(`Question ${questionIndex + 1}: Select Correct Answer`);
+        }
+      }
+
+      question.options.forEach((option, optionIndex) => {
+        if (question.optionType === "text" && !option.optionText.trim()) {
+          errors[`optionText-${questionIndex}-${optionIndex}`] = "*Option Text is required";
+          toast.error(`Question ${questionIndex + 1}, Option ${optionIndex + 1}: Option Text is required`);
+        }
+  
+        if (question.optionType === "image" && !option.optionImgURL.trim()) {
+          errors[`optionImgURL-${questionIndex}-${optionIndex}`] = "*Option Image URL is required";
+          toast.error(`Question ${questionIndex + 1}, Option ${optionIndex + 1}: Option Image URL is required`);
+        }
+      });
+    });
+  
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+  
   const handleChange = (e, questionIndex, optionIndex = null) => {
     const { name, value } = e.target;
 
     if (optionIndex !== null) {
-    //   // Handle changes in options
-    //   setQuizData((prevData) => ({
-    //     ...prevData,
-    //     questions: prevData.questions.map((question, i) =>
-    //       i === questionIndex
-    //         ? {
-    //             ...question,
-    //             options: question.options.map((option, j) =>
-    //               j === optionIndex ? { ...option, [name]: value } : option
-    //             ),
-    //             optionVotes: question.options.reduce((votes, option) => {
-    //               votes[option.optionText || optionIndex] = 0;
-    //               return votes;
-    //             }, {}),
-    //           }
-    //         : question
-    //     ),
-    //   }));
       setQuizData((prevData) => ({
         ...prevData,
         questions: prevData.questions.map((question, i) =>
@@ -89,7 +104,6 @@ const CreateQuizForm = ({ userId, onClose }) => {
       }));
 
     } else if (questionIndex !== null) {
-      // Handle changes in questions
       setQuizData((prevData) => ({
         ...prevData,
         questions: prevData.questions.map((question, i) =>
@@ -102,25 +116,28 @@ const CreateQuizForm = ({ userId, onClose }) => {
   };
   const handleSubmit = async () => {
     try {
-      const response = await axios.post(
-        `https://quizeapp-backend.onrender.com/quiz/createQuiz/${userId}`,
-        quizData,
-        {
-          headers: {
-            token: localStorage.getItem("token"),
-          },
-        }
-      );
-      setQuizId(response.data.quizId);
-      // const quizId = response.data.quizId;
+      const isValidSecondPage = validateSecondPage(quizData);
 
-      setSecondPage(false);
-      setThirdPage(true);
-      console.log(response.data);
+      if (isValidSecondPage) {
+        const response = await axios.post(
+          `https://quizeapp-backend.onrender.com/quiz/createQuiz/${userId}`,
+          quizData,
+          {
+            headers: {
+              token: localStorage.getItem("token"),
+            },
+          }
+        );
+        setQuizId(response.data.quizId);
+        setSecondPage(false);
+        setThirdPage(true);
+        console.log(response.data);
+      }
     } catch (error) {
       console.error("Error creating quiz:", error);
     }
   };
+    
   const handleAddQuestion = () => {
     if (quizData.questions.length < 5) {
       setQuizData((prevData) => ({
@@ -142,29 +159,12 @@ const CreateQuizForm = ({ userId, onClose }) => {
       }));
     }
   };
-
-  // const handleDeleteQuestion = (questionIndex) => {
-  //   setQuizData((prevData) => {
-  //     const updatedQuestions = prevData.questions.filter(
-  //       (_, i) => i !== questionIndex
-  //     );
-
-  //     return {
-  //       ...prevData,
-  //       questions: updatedQuestions,
-  //     };
-  //   });
-  // };
-
   const handleDeleteQuestion = (questionIndex) => {
     console.log("function called");
     setQuizData((prevData) => {
       const updatedQuestions = prevData.questions.filter(
         (_, i) => i !== questionIndex
       );
-
-      // If the active question index is greater than or equal to the deleted question index,
-      // decrease the active question index by 1 to maintain proper alignment.
       const updatedActiveQuestionIndex =
         activeQuestionIndex >= questionIndex
           ? activeQuestionIndex - 1
@@ -173,7 +173,6 @@ const CreateQuizForm = ({ userId, onClose }) => {
       return {
         ...prevData,
         questions: updatedQuestions,
-        // Update the active question index in the state
         activeQuestionIndex: updatedActiveQuestionIndex,
       };
     });
@@ -391,7 +390,6 @@ const CreateQuizForm = ({ userId, onClose }) => {
               </div>
 
               <div className={styles.qnText}>
-                {/* <span>Q. {activeQuestionIndex + 1}:</span> */}
                 <input
                   type="text"
                   name="questionText"
@@ -640,29 +638,6 @@ const CreateQuizForm = ({ userId, onClose }) => {
                       Add Option
                     </button>
                   </div>
-                {/* {quizData.questions &&
-                quizData.questions.length < activeQuestionIndex < 4 ? (
-                  <div id={styles.addOption}>
-                    <button
-                      onClick={() => handleAddOption(activeQuestionIndex)}
-                    >
-                      Add Option
-                    </button>
-                  </div>
-                ) : (
-                  " "
-                )} */}
-                {/* {quizData.questions[activeQuestionIndex].options.length < 4 ? (
-                  <div id={styles.addOption}>
-                    <button
-                      onClick={() => handleAddOption(activeQuestionIndex)}
-                    >
-                      Add Option
-                    </button>
-                  </div>
-                ) : (
-                  " "
-                )} */}
               </div>
 
               <div className={styles.submitbuttons}>
@@ -674,6 +649,7 @@ const CreateQuizForm = ({ userId, onClose }) => {
                 </div>
               </div>
             </div>
+            <ToastContainer />
           </div>
         ) : (
           ""
