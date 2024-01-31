@@ -33,6 +33,18 @@ const Dashboard = () => {
     fetchDashboardData();
   }, [userId]);
 
+  const handleCreateQuizSuccess = async () => {
+    try {
+      const response = await axios.get(`https://quizeapp-backend.onrender.com/quiz/dashboard/${userId}`, {
+        headers: {
+          token: localStorage.getItem('token'),
+        },
+      });
+      setDashboardData(response.data);
+    } catch (error) {
+      console.error('Error fetching dashboard data:', error);
+    }
+  };
 
   return (
     <>
@@ -41,7 +53,7 @@ const Dashboard = () => {
         <div className={styles.box}>
           <div className={styles.container}>
             <div>
-              <Navbar selectedButton={"dashboard"}/>
+              <Navbar selectedButton={"dashboard"} onCreateSuccess={handleCreateQuizSuccess}/>
             </div>
 
             <div className={styles.dashboard}>
