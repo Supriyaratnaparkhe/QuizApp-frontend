@@ -42,7 +42,7 @@ const QnAnalysis = () => {
       {!loading ? (
         <div className={styles.container}>
           <div>
-            <Navbar />
+            <Navbar selectedButton={"analytics"} />
           </div>
           <div className={styles.quiz}>
             <QnA quizDetails={quizDetails} quizType={quizType} />
