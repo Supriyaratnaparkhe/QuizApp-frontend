@@ -29,7 +29,11 @@ const Navbar = (props) => {
     navigate(`/dashboard/${userId}`);
   };
   const handleCreateQuizSuccess = () => {
-    props.onCreateSuccess();
+    if (selectedButton === "dashboard") {
+      props.onCreateSuccess();
+    } else if (selectedButton === "analytics") {
+      navigate(`/dashboard/${userId}`);
+    }   
   };
   return (
     <div>
