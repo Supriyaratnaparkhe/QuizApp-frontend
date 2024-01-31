@@ -4,14 +4,11 @@ import axios from "axios";
 import del from "../assets/delete.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import { handleShareClick } from "../../utils/share";
 
 const EditQuizForm = ({ onClose, userId, quizId }) => {
-  //   const [firstPage, setFirstPage] = useState(true);
   const [secondPage, setSecondPage] = useState(true);
   const [thirdPage, setThirdPage] = useState(false);
   const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
-  //   const [selectedQuizType, setSelectedQuizType] = useState(null);
 
   const [selectedTimer, setSelectedTimer] = useState(0);
 
@@ -41,7 +38,6 @@ const EditQuizForm = ({ onClose, userId, quizId }) => {
         );
         const quizDetails = response.data.quiz;
         setQuizData(response.data.quiz);
-        // setSelectedQuizType(quizDetails.quizType);
         setSelectedTimer(quizDetails.questions[0]?.timer || 0);
       } catch (error) {
         console.error("Error fetching quiz details:", error.message);
@@ -55,7 +51,6 @@ const EditQuizForm = ({ onClose, userId, quizId }) => {
     const { name, value } = e.target;
 
     if (optionIndex !== null) {
-      // Handle changes in options
       setQuizData((prevData) => ({
         ...prevData,
         questions: prevData.questions.map((question, i) =>
@@ -78,7 +73,6 @@ const EditQuizForm = ({ onClose, userId, quizId }) => {
         ),
       }));
     } else if (questionIndex !== null) {
-      // Handle changes in questions
       setQuizData((prevData) => ({
         ...prevData,
         questions: prevData.questions.map((question, i) =>
@@ -102,8 +96,6 @@ const EditQuizForm = ({ onClose, userId, quizId }) => {
           },
         }
       );
-
-      // const quizId = response.data.quizId;
 
       setSecondPage(false);
       setThirdPage(true);
@@ -134,19 +126,7 @@ const EditQuizForm = ({ onClose, userId, quizId }) => {
       }));
     }
   };
-
-//   const handleDeleteQuestion = (questionIndex) => {
-//     setQuizData((prevData) => {
-//       const updatedQuestions = prevData.questions.filter(
-//         (_, i) => i !== questionIndex
-//       );
-
-//       return {
-//         ...prevData,
-//         questions: updatedQuestions,
-//       };
-//     });
-//   };
+  
 const handleDeleteQuestion = (questionIndex) => {
     console.log("function called");
     setQuizData((prevData) => {
@@ -154,8 +134,6 @@ const handleDeleteQuestion = (questionIndex) => {
         (_, i) => i !== questionIndex
       );
 
-      // If the active question index is greater than or equal to the deleted question index,
-      // decrease the active question index by 1 to maintain proper alignment.
       const updatedActiveQuestionIndex =
         activeQuestionIndex >= questionIndex
           ? activeQuestionIndex - 1
@@ -164,7 +142,6 @@ const handleDeleteQuestion = (questionIndex) => {
       return {
         ...prevData,
         questions: updatedQuestions,
-        // Update the active question index in the state
         activeQuestionIndex: updatedActiveQuestionIndex,
       };
     });
@@ -203,24 +180,10 @@ const handleDeleteQuestion = (questionIndex) => {
       ),
     }));
   };
-
-  //   const handlePage = () => {
-  //     setFirstPage(false);
-  //     setSecondPage(true);
-  //   };
-
   const handleQuestionClick = (questionIndex) => {
     setActiveQuestionIndex(questionIndex);
   };
-  //   const setQuizTypePoll = () => {
-  //     setQuizData((prevData) => ({ ...prevData, quizType: "poll" }));
-  //     setSelectedQuizType("poll");
-  //   };
 
-  //   const setQuizTypeQA = () => {
-  //     setQuizData((prevData) => ({ ...prevData, quizType: "q&a" }));
-  //     setSelectedQuizType("q&a");
-  //   };
   const handleSetCorrectAnswer = (questionIndex, optionIndex) => {
     setQuizData((prevData) => ({
       ...prevData,
@@ -278,52 +241,6 @@ const handleDeleteQuestion = (questionIndex) => {
   return (
     <div className={styles.container}>
       <div className={styles.create}>
-        {/* {firstPage ? (
-          <div className={styles.page1}>
-            <div className={styles.quizname}>
-              <input
-                type="text"
-                name="quizName"
-                value={quizData.quizName}
-                onChange={(e) => handleChange(e)}
-                placeholder="Quiz name"
-              />
-            </div>
-            <div className={styles.quiztype}>
-              <div id={styles.quizType}>Quiz Type</div>
-              <div
-                onClick={setQuizTypePoll}
-                className={
-                  selectedQuizType === "poll"
-                    ? styles.selectedButton
-                    : styles.qztypebutton
-                }
-              >
-                <button>Poll</button>
-              </div>
-              <div
-                onClick={setQuizTypeQA}
-                className={
-                  selectedQuizType === "q&a"
-                    ? styles.selectedButton
-                    : styles.qztypebutton
-                }
-              >
-                <button>Q&A</button>
-              </div>
-            </div>
-            <div className={styles.but}>
-              <div className={styles.cancel}>
-                <button onClick={onClose}>cancel</button>
-              </div>
-              <div className={styles.continue}>
-                <button onClick={handlePage}>Continue</button>
-              </div>
-            </div>
-          </div>
-        ) : (
-          ""
-        )} */}
         {secondPage ? (
           <div className={styles.page2}>
             <div className={styles.main}>
@@ -366,7 +283,6 @@ const handleDeleteQuestion = (questionIndex) => {
               </div>
 
               <div className={styles.qnText}>
-                {/* <span>Q. {activeQuestionIndex + 1}:</span> */}
                 <input
                   type="text"
                   name="questionText"
@@ -470,10 +386,14 @@ const handleDeleteQuestion = (questionIndex) => {
                   quizData.questions[activeQuestionIndex].options.map(
                     (option, optionIndex) => (
                     <div
-                      key={optionIndex}
-                      className={`${styles.optioninput} ${
-                        option.isSelected ? styles.selectedOption : ""
-                      } ${
+                        key={optionIndex}
+                        className={`${styles.optioninput} ${
+                          option.isSelected ? styles.selectedOption : ""
+                        } ${
+                          quizData.quizType === "poll"
+                            ? styles.deSelectedOption
+                            : ""
+                        } ${
                         option.optionText ===
                           quizData.questions[activeQuestionIndex]
                             .correctAnswer ||
@@ -485,7 +405,7 @@ const handleDeleteQuestion = (questionIndex) => {
                           ? styles.selectedOption
                           : ""
                       }`}
-                    >
+                      >
                       {quizData.quizType === "q&a" &&
                         quizData.questions[activeQuestionIndex].optionType !==
                           "" && (
@@ -621,18 +541,6 @@ const handleDeleteQuestion = (questionIndex) => {
                     </div>
                   )
                 )}
-                {/* {quizData.questions &&
-                  quizData.questions.length < activeQuestionIndex < 4  ?(
-                    <div id={styles.addOption}>
-                      <button
-                        onClick={() => handleAddOption(activeQuestionIndex)}
-                      >
-                        Add Option
-                      </button>
-                    </div>
-                     ) : (
-                      " "
-                    )} */}
                     <div id={styles.addOption}>
                       <button
                         onClick={() => handleAddOption(activeQuestionIndex)}
