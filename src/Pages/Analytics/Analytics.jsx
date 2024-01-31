@@ -9,7 +9,7 @@ const Analytics = () => {
   return (
     <div className={styles.analytics}>
       <div>
-        <Navbar/>
+        <Navbar selectedButton={"analytics"}/>
       </div>
       <div className={styles.quiztablecontainer}>
         <div><QuizTable/></div>
