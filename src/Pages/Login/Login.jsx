@@ -10,7 +10,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-
+  const [loading, setLoading] = useState("Login");
   const [errors, setErrors] = useState({});
 
   const validateValues = (UserState) => {
@@ -32,6 +32,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     try {
       e.preventDefault();
+      setLoading("Loading...")
       const isValid = validateValues(UserState);
 
       if (isValid) {
@@ -40,12 +41,6 @@ const Login = () => {
           password: UserState.password,
         });
         const userId = response.data.userId;
-
-        // setUserState(prevState => ({
-        //     ...prevState,
-        //     userId: userId,
-        //   }));
-
         localStorage.setItem("token", response.data.token);
         
         toast.success("Login successful!", {
@@ -140,13 +135,8 @@ const Login = () => {
               </table>
               <div className={styles.loginbtn}>
                 <button type="submit">
-                  <div>Login</div>
+                  <div>{loading}</div>
                 </button>
-                {/* <Link to={`/dashboard/65a78989c61e799df591065c`}>
-                  <button type="submit">
-                    <div>Login</div>
-                  </button>
-                </Link> */}
               </div>
             </form>
             <ToastContainer />
