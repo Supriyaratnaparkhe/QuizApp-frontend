@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./Quiz.module.css";
 import { useParams, useNavigate } from "react-router-dom";
+import Spinner from "../Spinner/Spinner"
 
 const QuizzePage = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -161,7 +162,7 @@ const QuizzePage = () => {
   };
 
   if (!quizData) {
-    return <div>Loading...</div>;
+    return <div><Spinner/></div>;
   }
 
   const questionType = quizData.quizType;
