@@ -226,7 +226,7 @@ const handleDeleteQuestion = (questionIndex) => {
     setSelectedTimer(value);
   };
   const handleShareClick = () => {
-    const quizLink = `https://quizze-app-supriya.netlify.app/#/liveQuiz/${quizId}`;
+    const quizLink = `https://quizze-app-supriya.netlify.app/liveQuiz/${quizId}`;
 
     navigator.clipboard.writeText(quizLink).then(
       () => {
@@ -573,7 +573,7 @@ const handleDeleteQuestion = (questionIndex) => {
                 Congrats your Quiz is Updated!
               </div>
               <div className={styles.link}>
-                https://quizze-app-supriya.netlify.app/#/liveQuiz/{quizId}
+                https://quizze-app-supriya.netlify.app/liveQuiz/{quizId}
               </div>
               <div className={styles.share}>
                 <button onClick={handleShareClick}>share</button>
