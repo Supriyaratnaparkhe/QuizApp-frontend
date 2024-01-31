@@ -49,3 +49,6 @@
   border: none;
   cursor: pointer;
 }
+.but .selectedButtonColor {
+  background-color: #e3eaff; 
+}
