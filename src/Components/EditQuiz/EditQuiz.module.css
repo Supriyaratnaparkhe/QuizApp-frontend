@@ -120,11 +120,7 @@
 }
 .page2 {
   display: flex;
-
-  /* align-items: center; */
   justify-content: center;
-  /* padding-left: 30px;
-    gap: 50px; */
   width: 845px;
   height: 540px;
   border-radius: 10px;
@@ -133,7 +129,6 @@
 .main {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
 }
 #max {
   position: fixed;
@@ -374,7 +369,7 @@
   accent-color: #353434;
 }
 #radio2 input[type="radio"] {
-  accent-color: #60b84b;
+  accent-color: #fff;
 }
 .page3 {
   width: 845px;
