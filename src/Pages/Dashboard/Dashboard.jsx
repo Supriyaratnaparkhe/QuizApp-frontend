@@ -11,27 +11,6 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const { userId } = useParams();
 
-  // useEffect(() => {
-  //   const fetchDashboardData = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         `http://localhost:3001/quiz/dashboard/${userId}`,
-  //         {
-  //           headers: {
-  //             token: localStorage.getItem("token"),
-  //           },
-  //         }
-  //       );
-  //       setDashboardData(response.data);
-  //     } catch (error) {
-  //       console.error("Error fetching dashboard data:", error);
-  //     }
-  //   };
-
-  //   fetchDashboardData();
-  //   setLoading(false);
-  // }, [userId]);
-
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
@@ -47,7 +26,7 @@ const Dashboard = () => {
       } catch (error) {
         console.error("Error fetching dashboard data:", error);
       } finally {
-        setLoading(false); // Move setLoading(false) here
+        setLoading(false); 
       }
     };
   
@@ -55,19 +34,6 @@ const Dashboard = () => {
   }, [userId]);
 
 
-  // const handleUpdateQuizList = async () => {
-  //   // You can use this function to update the quiz list after creating a new quiz
-  //   try {
-  //     const response = await axios.get(`http://localhost:3001/quiz/dashboard/${userId}`, {
-  //       headers: {
-  //         token: localStorage.getItem('token'),
-  //       },
-  //     });
-  //     setDashboardData(response.data);
-  //   } catch (error) {
-  //     console.error('Error fetching dashboard data:', error);
-  //   }
-  // };
   return (
     <>
       {!loading ? (
