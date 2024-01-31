@@ -15,11 +15,10 @@ const DeleteQuiz = ({ onClose, onDelete, quizId }) => {
           },
         }
       );
-      onDelete(); // Trigger any necessary actions after successful deletion
-      onClose(); // Close the modal
+      onDelete(); 
+      onClose(); 
     } catch (error) {
       console.error("Error deleting quiz:", error);
-      // Handle error as needed
     }
   };
 
