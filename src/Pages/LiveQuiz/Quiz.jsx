@@ -16,7 +16,7 @@ const QuizzePage = () => {
     const updateImpressions = async () => {
       try {
         await axios.put(
-          `http://localhost:3001/quiz/impression/${quizId}`
+          `https://quizeapp-backend.onrender.com/quiz/impression/${quizId}`
         );
 
       } catch (error) {
