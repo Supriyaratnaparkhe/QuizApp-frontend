@@ -37,7 +37,7 @@ const QuizTable = () => {
         console.error("Error fetching dashboard data:", error);
       }
       finally {
-        setLoading(false); // Move setLoading(false) here
+        setLoading(false); 
       }
     };
 
@@ -61,7 +61,6 @@ const QuizTable = () => {
     });
   };
   const handleDelete = () => {
-    // Update local state to remove the deleted quiz
     setAnalyticData((prevData) => {
       const updatedData = {
         ...prevData,
@@ -76,7 +75,7 @@ const QuizTable = () => {
   };
 
   const handleShareClick = (quizId) => {
-    const quizLink = `https://quizze-app-supriya.netlify.app/#/liveQuiz/${quizId}`;
+    const quizLink = `https://quizze-app-supriya.netlify.app/liveQuiz/${quizId}`;
 
     navigator.clipboard.writeText(quizLink).then(
       () => {
