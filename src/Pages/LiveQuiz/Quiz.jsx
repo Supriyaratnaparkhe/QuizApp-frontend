@@ -51,7 +51,6 @@ const QuizzePage = () => {
         setCountdown((prevCountdown) => {
           if (prevCountdown === 1) {
             if (currentQuestionIndex === quizData.questions.length - 1) {
-              // If it's the last question, automatically submit data
               handleSubmit();
             } else if (quizData.quizType) {
               handleNextQuestion();
@@ -102,7 +101,6 @@ const QuizzePage = () => {
       };
     });
 
-    // Send user responses to the backend
     axios
       .put(`https://quizeapp-backend.onrender.com/quiz/${quizId}`, userResponses)
       .then((response) => {
@@ -114,7 +112,7 @@ const QuizzePage = () => {
 
     const finalScore = calculateScore();
     const quizLength = quizData.questions.length;
-    // Display the final score to the user locally
+
     navigate("/finalScore", { state: { finalScore, quizLength } });
   };
 
@@ -134,7 +132,6 @@ const QuizzePage = () => {
         selectedOption: optionIndex.toString(),
       };
     });
-    // Send user responses to the backend
     axios
       .put(`https://quizeapp-backend.onrender.com/quiz/poll/${quizId}`, userResponses)
       .then((response) => {
