@@ -75,7 +75,7 @@ const Dashboard = () => {
         <div className={styles.box}>
           <div className={styles.container}>
             <div>
-              <Navbar/>
+              <Navbar selectedButton={"dashboard"}/>
             </div>
 
             <div className={styles.dashboard}>
