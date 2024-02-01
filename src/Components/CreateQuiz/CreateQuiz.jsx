@@ -151,7 +151,7 @@ const CreateQuizForm = ({ userId, onClose, onCreateSuccess }) => {
               { optionText: "", optionImgURL: "" },
             ],
             correctAnswer: "",
-            timer: 10,
+            timer: 0,
             optionType: "",
             optionVotes: {},
           },
