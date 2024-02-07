@@ -118,7 +118,7 @@ const EditQuizForm = ({ onClose, userId, quizId }) => {
               { optionText: "", optionImgURL: "" },
             ],
             correctAnswer: "",
-            timer: 10,
+            timer: 0,
             optionType: "",
             optionVotes: {},
           },
