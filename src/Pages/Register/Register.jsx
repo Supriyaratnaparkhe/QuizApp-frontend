@@ -14,7 +14,7 @@ const Register = () => {
   });
 
   const [errors, setErrors] = useState({});
-
+  const [loading, setLoading] = useState("Sign-Up");
   const validateValues = (UserState) => {
     const errors = {};
     if (!UserState.name) {
@@ -43,6 +43,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     try {
       e.preventDefault();
+      setLoading("Loading...")
       const isValid = validateValues(UserState);
 
       if (isValid) {
@@ -177,7 +178,7 @@ const Register = () => {
               </table>
               <div className={styles.signupbtn}>
                 <button type="submit">
-                  <div>Sign-Up</div>
+                  <div>{loading}</div>
                 </button>
               </div>
             </form>
