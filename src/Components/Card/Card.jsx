@@ -10,7 +10,7 @@ const Card = (props) => {
     <div>
       <div className={styles.upper}>
         <div className={`${styles.card} ${styles.quiz}`}>
-          <span id={styles.num}>{props.numberOfQuizzes}</span> Quiz    Created
+          <span id={styles.num}>{props.numberOfQuizzes}</span> Quiz Created
         </div>
         <div className={`${styles.card} ${styles.question}`}>
           <span id={styles.num}>{props.totalNumberOfQuestions}</span> questions
